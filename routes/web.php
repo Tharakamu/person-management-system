@@ -16,7 +16,20 @@ Route::get('/dashboard', function () {
     $personCount = Person::count();
 
     $userCount = User::count();
+$todayRegistrations = Person::whereDate(
+    'created_at',
+    today()
+)->count();
+    $maleCount = Person::where('gender', 'Male')->count();
 
+    $femaleCount = Person::where('gender', 'Female')->count();
+$under18Count = Person::where('age', '<', 18)->count();
+$over18Count = Person::where('age', '>=', 18)->count();
+$youngCount = Person::whereBetween('age', [18, 35])->count();
+
+$middleCount = Person::whereBetween('age', [36, 60])->count();
+
+$seniorCount = Person::where('age', '>', 60)->count();
     $recentPersons = Person::latest()
         ->take(5)
         ->get();
@@ -28,11 +41,21 @@ Route::get('/dashboard', function () {
     return view(
         'dashboard',
         compact(
-            'personCount',
-            'userCount',
-            'recentPersons',
-            'districtData'
-        )
+    'personCount',
+'userCount',
+'maleCount',
+'femaleCount',
+'todayRegistrations',
+'under18Count',
+'youngCount',
+'under18Count',
+'over18Count',
+'middleCount',
+'seniorCount',
+'under18Count',
+'recentPersons',
+'districtData'
+)
     );
 
 })->middleware(['auth'])->name('dashboard');

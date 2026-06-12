@@ -34,7 +34,10 @@
                     <th width="250">Full Name</th>
                     <td>{{ $person->full_name }}</td>
                 </tr>
-
+<tr>
+    <th>ID Card Number</th>
+    <td>{{ $person->id_card_number }}</td>
+</tr>
                 <tr>
                     <th>Age</th>
                     <td>{{ $person->age }}</td>
@@ -75,10 +78,6 @@
                     <td>{{ $person->gn_division }}</td>
                 </tr>
 
-                <tr>
-                    <th>GS Wasam</th>
-                    <td>{{ $person->gs_wasam }}</td>
-                </tr>
 
             </table>
 

@@ -2,40 +2,75 @@
 <html>
 <head>
     <title>Edit Person</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<h2>Edit Person</h2>
+<div class="container mt-5">
 
-<form action="/persons/{{ $person->id }}" method="POST">
+    <div class="card shadow">
 
-    @csrf
-    @method('PUT')
+        <div class="card-header bg-warning">
+            <h3>Edit Person</h3>
+        </div>
 
-    <p>Name</p>
-    <input type="text"
-           name="full_name"
-           value="{{ $person->full_name }}">
+        <div class="card-body">
 
-    <br><br>
+            <form action="/persons/{{ $person->id }}" method="POST">
 
-    <p>District</p>
-    <input type="text"
-           name="district"
-           value="{{ $person->district }}">
+                @csrf
+                @method('PUT')
 
-    <br><br>
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text"
+                           name="full_name"
+                           class="form-control"
+                           value="{{ $person->full_name }}">
+                </div>
 
-    <p>Phone</p>
-    <input type="text"
-           name="contact_no_1"
-           value="{{ $person->contact_no_1 }}">
+                <div class="mb-3">
+                    <label class="form-label">ID Card Number</label>
+                    <input type="text"
+                           name="id_card_number"
+                           class="form-control"
+                           value="{{ $person->id_card_number }}">
+                </div>
 
-    <br><br>
+                <div class="mb-3">
+                    <label class="form-label">District</label>
+                    <input type="text"
+                           name="district"
+                           class="form-control"
+                           value="{{ $person->district }}">
+                </div>
 
-    <button type="submit">Update</button>
+                <div class="mb-3">
+                    <label class="form-label">Contact No 1</label>
+                    <input type="text"
+                           name="contact_no_1"
+                           class="form-control"
+                           value="{{ $person->contact_no_1 }}">
+                </div>
 
-</form>
+                <button type="submit"
+                        class="btn btn-success">
+                    Update Person
+                </button>
+
+                <a href="/persons"
+                   class="btn btn-secondary">
+                    Back
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>

@@ -1,56 +1,41 @@
-
 <x-guest-layout>
-<div class="text-center mb-4">
 
-    <h1 style="
-        font-size:60px;
-        font-weight:bold;
-        color:#0d6efd;
-    ">
-      <div style="
-    text-align:center;
-    margin-bottom:30px;
-">
+    <div style="text-align:center; margin-bottom:30px;">
 
-    <h1 style="
-        font-size:70px;
-        font-weight:900;
-        color:#2563eb;
-        letter-spacing:5px;
-        margin-bottom:0;
-    ">
-       NPP
-    </h1>
+        <h1 style="
+            font-size:70px;
+            font-weight:900;
+            color:#2563eb;
+            letter-spacing:5px;
+            margin-bottom:0;
+        ">
+            NPP
+        </h1>
 
-    <h2 style="
-        font-size:26px;
-        font-weight:bold;
-        color:#1e293b;
-        margin-top:5px;
-    ">
-        PERSON MANAGEMENT SYSTEM
-    </h2>
+        <h2 style="
+            font-size:26px;
+            font-weight:bold;
+            color:#1e293b;
+            margin-top:5px;
+        ">
+            PERSON MANAGEMENT SYSTEM
+        </h2>
 
-    <p style="
-        color:#64748b;
-        margin-top:10px;
-    ">
-         Welcome to the Person Management System
-    </p>
+        <p style="
+            color:#64748b;
+            margin-top:10px;
+        ">
+            Welcome to the Person Management System
+        </p>
 
-</div>
-    </h3>
+    </div>
 
-    <p class="text-muted">
-        Welcome to the Person Management System
-    </p>
-
-</div>
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <!-- Email Address -->
+        <!-- Email -->
         <div>
+
             <x-input-label for="email" :value="__('Email')" />
 
             <x-text-input
@@ -66,6 +51,7 @@
             <x-input-error
                 :messages="$errors->get('email')"
                 class="mt-2" />
+
         </div>
 
         <!-- Password -->
@@ -108,30 +94,64 @@
 
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <!-- Forgot Password -->
+        @if (Route::has('password.request'))
 
-            @if (Route::has('password.request'))
+            <div class="text-center mt-3">
 
                 <a
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="underline text-sm text-gray-600 hover:text-gray-900"
                     href="{{ route('password.request') }}">
 
-                    {{ __('Forgot your password?') }}
+                    Forgot your password?
 
                 </a>
 
-            @endif
+            </div>
 
-            <x-primary-button class="ms-3">
+        @endif
 
-                {{ __('Log in') }}
+        <!-- Login Button -->
+        <div class="mt-4">
 
-            </x-primary-button>
+            <button type="submit"
+                style="
+                    width:100%;
+                    background:#2563eb;
+                    color:white;
+                    padding:12px;
+                    border:none;
+                    border-radius:8px;
+                    font-weight:bold;
+                    font-size:16px;
+                ">
+                Log In
+            </button>
+
+        </div>
+
+        <!-- Register Button -->
+        <div class="mt-3">
+
+            <a href="{{ route('register') }}"
+               style="
+                    display:block;
+                    width:100%;
+                    text-align:center;
+                    background:#16a34a;
+                    color:white;
+                    padding:12px;
+                    border-radius:8px;
+                    text-decoration:none;
+                    font-weight:bold;
+                    font-size:16px;
+               ">
+                Register New User
+            </a>
 
         </div>
 
         <!-- Footer -->
-
         <div class="mt-6 text-center border-t pt-4">
 
             <p class="text-sm font-bold text-gray-700">
