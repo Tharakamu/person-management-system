@@ -106,3 +106,24 @@ Route::get('/', function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/test-api', function () {
+
+
+$user = \App\Models\User::create([
+    'name' => 'Browser Test',
+    'email' => 'browser'.time().'@test.com',
+    'password' => bcrypt('123456'),
+    'role' => 'user'
+]);
+
+$token = $user->createToken('api-token')->plainTextToken;
+
+return response()->json([
+    'status' => true,
+    'token' => $token,
+    'user' => $user
+]);
+
+
+});

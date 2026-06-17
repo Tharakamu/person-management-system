@@ -3,7 +3,9 @@
 <head>
     <title>Add New Person</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    @extends('layouts.admin')
+
+@section('content')
 </head>
 <body>
 
@@ -121,11 +123,26 @@
 
                 <div class="mb-3">
                     <label class="form-label">District</label>
-                    <input type="text"
-                           name="district"
-                           class="form-control"
-                           placeholder="Enter District"
-                           value="{{ old('district') }}">
+                   <select name="district" class="form-select">
+
+    <option value="">-- Select District --</option>
+
+    <option value="Colombo"
+        {{ old('district') == 'Colombo' ? 'selected' : '' }}>
+        Colombo
+    </option>
+
+    <option value="Gampaha"
+        {{ old('district') == 'Gampaha' ? 'selected' : '' }}>
+        Gampaha
+    </option>
+
+    <option value="Kalutara"
+        {{ old('district') == 'Kalutara' ? 'selected' : '' }}>
+        Kalutara
+    </option>
+             </select>
+</select>
                 </div>
 
                 <div class="mb-3">
@@ -276,7 +293,7 @@ document.getElementById('dob').addEventListener('change', function () {
 });
 
 </script>
-
+@endsection
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

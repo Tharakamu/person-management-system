@@ -87,8 +87,8 @@ compact(
         $request->validate([
             'full_name'      => 'required|max:255',
             'id_card_number' => 'nullable|unique:people,id_card_number',
-            'age'            => 'required|numeric|min:1|max:120',
             'address'        => 'required',
+            'age'            => 'required|numeric|min:1|max:120',
             'contact_no_1'   => 'required',
             'district'       => 'required',
             'ds_division'    => 'required',
@@ -148,7 +148,7 @@ compact(
         $request->validate([
             'full_name'      => 'required|max:255',
             'id_card_number' => 'nullable|unique:people,id_card_number,' . $person->id,
-            'address'        => 'required',
+            
             'district'       => 'required',
             'contact_no_1'   => 'required',
         ], [
@@ -159,19 +159,19 @@ compact(
                 'මෙම ජාතික හැඳුනුම්පත් අංකය දැනටමත් පද්ධතියේ ඇත.',
         ]);
 
-        $person->update([
-            'full_name'      => $request->full_name,
-            'id_card_number' => $request->id_card_number,
-            'age'            => $request->age,
-            'date_of_birth'  => $request->date_of_birth,
-            'gender'         => $request->gender,
-            'address'        => $request->address,
-            'contact_no_1'   => $request->contact_no_1,
-            'contact_no_2'   => $request->contact_no_2,
-            'district'       => $request->district,
-            'ds_division'    => $request->ds_division,
-            'gn_division'    => $request->gn_division,
-        ]);
+       $person->update([
+    'full_name'      => $request->full_name,
+    'id_card_number' => $request->id_card_number,
+    'age'            => $request->age,
+    'date_of_birth'  => $request->date_of_birth,
+    'gender'         => $request->gender,
+    'address'        => $request->address,
+    'contact_no_1'   => $request->contact_no_1,
+    'contact_no_2'   => $request->contact_no_2,
+    'district'       => $request->district,
+    'ds_division'    => $request->ds_division,
+    'gn_division'    => $request->gn_division,
+]);
 
         return redirect('/persons')
             ->with('success', 'Person Updated Successfully');

@@ -27,10 +27,6 @@
             border-bottom:1px solid #444;
         }
 
-        .logo h4{
-            margin:0;
-        }
-
         .logo small{
             color:#ccc;
         }
@@ -40,7 +36,6 @@
             color:white;
             text-decoration:none;
             padding:14px 20px;
-            transition:0.3s;
         }
 
         .sidebar a:hover{
@@ -52,17 +47,7 @@
             padding:25px;
         }
 
-        .footer{
-            position:absolute;
-            bottom:10px;
-            width:100%;
-            text-align:center;
-            font-size:12px;
-            color:#ccc;
-        }
-
     </style>
-
 </head>
 <body>
 
@@ -78,28 +63,16 @@
 
     </div>
 
-    <a href="/dashboard">
-        📊 Dashboard
-    </a>
+    <a href="/dashboard">📊 Dashboard</a>
 
-    <a href="/persons">
-        📋 Persons
-    </a>
+    <a href="/persons">📋 Persons</a>
 
-    <a href="/persons/create">
-        ➕ Add Person
-    </a>
+    <a href="/persons/create">➕ Add Person</a>
 
-    <a href="/reports">
-        📑 Reports
-    </a>
+    <a href="/reports">📑 Reports</a>
 
     @if(auth()->user()->role == 'admin')
-
-        <a href="/users">
-            👥 User Management
-        </a>
-
+        <a href="/users">👥 User Management</a>
     @endif
 
     <hr>
@@ -116,19 +89,23 @@
 
     </form>
 
-    <div class="footer">
-
-        Created By<br>
-        <strong>Tharaka Wijesinghe</strong><br>
-        0761819586
-
-    </div>
-
 </div>
 
 <div class="content">
 
     @yield('content')
+
+    <hr>
+
+    <div class="text-center text-muted mt-4">
+
+        <small>Created By</small><br>
+
+        <strong>Tharaka Wijesinghe</strong><br>
+
+        0761819586
+
+    </div>
 
 </div>
 
